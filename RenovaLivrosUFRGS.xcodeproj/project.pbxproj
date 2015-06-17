@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3809F8921B31161700AC82D4 /* RenewBooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3809F8911B31161700AC82D4 /* RenewBooksViewController.swift */; };
 		386E91911B30AC8000BAA700 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386E91901B30AC8000BAA700 /* AppDelegate.swift */; };
 		386E91941B30AC8000BAA700 /* RenovaLivrosUFRGS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 386E91921B30AC8000BAA700 /* RenovaLivrosUFRGS.xcdatamodeld */; };
-		386E91961B30AC8000BAA700 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386E91951B30AC8000BAA700 /* ViewController.swift */; };
+		386E91961B30AC8000BAA700 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386E91951B30AC8000BAA700 /* LoginViewController.swift */; };
 		386E91991B30AC8000BAA700 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 386E91971B30AC8000BAA700 /* Main.storyboard */; };
 		386E919B1B30AC8000BAA700 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 386E919A1B30AC8000BAA700 /* Images.xcassets */; };
 		386E919E1B30AC8000BAA700 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 386E919C1B30AC8000BAA700 /* LaunchScreen.xib */; };
@@ -27,11 +28,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3809F8911B31161700AC82D4 /* RenewBooksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RenewBooksViewController.swift; sourceTree = "<group>"; };
 		386E918B1B30AC8000BAA700 /* RenovaLivrosUFRGS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RenovaLivrosUFRGS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		386E918F1B30AC8000BAA700 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		386E91901B30AC8000BAA700 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		386E91931B30AC8000BAA700 /* RenovaLivrosUFRGS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RenovaLivrosUFRGS.xcdatamodel; sourceTree = "<group>"; };
-		386E91951B30AC8000BAA700 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		386E91951B30AC8000BAA700 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		386E91981B30AC8000BAA700 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		386E919A1B30AC8000BAA700 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		386E919D1B30AC8000BAA700 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -80,7 +82,8 @@
 			isa = PBXGroup;
 			children = (
 				386E91901B30AC8000BAA700 /* AppDelegate.swift */,
-				386E91951B30AC8000BAA700 /* ViewController.swift */,
+				386E91951B30AC8000BAA700 /* LoginViewController.swift */,
+				3809F8911B31161700AC82D4 /* RenewBooksViewController.swift */,
 				386E91971B30AC8000BAA700 /* Main.storyboard */,
 				386E919A1B30AC8000BAA700 /* Images.xcassets */,
 				386E919C1B30AC8000BAA700 /* LaunchScreen.xib */,
@@ -215,9 +218,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				386E91961B30AC8000BAA700 /* ViewController.swift in Sources */,
+				386E91961B30AC8000BAA700 /* LoginViewController.swift in Sources */,
 				386E91911B30AC8000BAA700 /* AppDelegate.swift in Sources */,
 				386E91941B30AC8000BAA700 /* RenovaLivrosUFRGS.xcdatamodeld in Sources */,
+				3809F8921B31161700AC82D4 /* RenewBooksViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +417,7 @@
 				386E91AF1B30AC8000BAA700 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		386E91B01B30AC8000BAA700 /* Build configuration list for PBXNativeTarget "RenovaLivrosUFRGSTests" */ = {
 			isa = XCConfigurationList;
@@ -421,6 +426,7 @@
 				386E91B21B30AC8000BAA700 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
