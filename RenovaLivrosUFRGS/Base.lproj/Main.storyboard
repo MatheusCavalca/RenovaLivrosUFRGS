@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="RenovaLivrosUFRGS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="00220552" placeholder="User" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hwm-mb-Z3b">
+                                <rect key="frame" x="20" y="338" width="280" height="20"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="USUÁRIO" placeholder="User" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fv7-y0-Gg1">
+                                <rect key="frame" x="21" y="316" width="280" height="14"/>
+                                <color key="textColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="10"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="00220552" placeholder="User" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kRd-3s-2jP">
+                                <rect key="frame" x="20" y="411" width="280" height="20"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="SENHA" placeholder="User" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="67B-Br-Jbo">
+                                <rect key="frame" x="20" y="390" width="280" height="14"/>
+                                <color key="textColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="10"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line" translatesAutoresizingMaskIntoConstraints="NO" id="FtK-SI-pyb">
+                                <rect key="frame" x="20" y="442" width="280" height="1"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1KA-vX-4WT">
+                                <rect key="frame" x="21" y="482" width="280" height="48"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="19"/>
+                                <state key="normal" title="Entrar" backgroundImage="button_enter">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line" translatesAutoresizingMaskIntoConstraints="NO" id="s41-Pv-DNn">
+                                <rect key="frame" x="20" y="368" width="280" height="1"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ufrgs_logo" translatesAutoresizingMaskIntoConstraints="NO" id="r6U-nX-IYR">
+                                <rect key="frame" x="44" y="85" width="233" height="180"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="1KA-vX-4WT" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="5" id="1fR-zw-FdI"/>
+                            <constraint firstItem="1KA-vX-4WT" firstAttribute="centerY" secondItem="2fi-mo-0CV" secondAttribute="top" multiplier="0.89" id="4U0-bb-Pr7"/>
+                            <constraint firstAttribute="centerX" secondItem="FtK-SI-pyb" secondAttribute="centerX" id="5h7-a8-tF6"/>
+                            <constraint firstItem="FtK-SI-pyb" firstAttribute="width" secondItem="1KA-vX-4WT" secondAttribute="width" id="5oD-k1-DGd"/>
+                            <constraint firstItem="s41-Pv-DNn" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" multiplier="0.65" id="Fpy-Me-svE"/>
+                            <constraint firstItem="kRd-3s-2jP" firstAttribute="width" secondItem="1KA-vX-4WT" secondAttribute="width" id="H0L-0p-Uqe"/>
+                            <constraint firstItem="r6U-nX-IYR" firstAttribute="height" secondItem="kh9-bI-dsS" secondAttribute="width" multiplier="233:568" constant="48.732394366197184" id="Htn-MP-Qeb"/>
+                            <constraint firstAttribute="centerX" secondItem="r6U-nX-IYR" secondAttribute="centerX" constant="-0.5" id="Kqe-ba-0za"/>
+                            <constraint firstItem="1KA-vX-4WT" firstAttribute="width" secondItem="Hwm-mb-Z3b" secondAttribute="width" id="Rz3-uj-QYo"/>
+                            <constraint firstItem="1KA-vX-4WT" firstAttribute="width" secondItem="67B-Br-Jbo" secondAttribute="width" id="TWQ-LV-bYb"/>
+                            <constraint firstItem="s41-Pv-DNn" firstAttribute="width" secondItem="1KA-vX-4WT" secondAttribute="width" id="VUl-qS-YPK"/>
+                            <constraint firstItem="Hwm-mb-Z3b" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" multiplier="0.63" id="XWb-FY-hKS"/>
+                            <constraint firstItem="kRd-3s-2jP" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" multiplier="0.76" id="a0Z-uD-ONQ"/>
+                            <constraint firstAttribute="centerX" secondItem="kRd-3s-2jP" secondAttribute="centerX" id="d1K-qB-0Wf"/>
+                            <constraint firstItem="r6U-nX-IYR" firstAttribute="centerY" secondItem="2fi-mo-0CV" secondAttribute="top" multiplier="0.3" constant="4.5999999999999943" id="dhu-TR-st3"/>
+                            <constraint firstAttribute="centerX" secondItem="67B-Br-Jbo" secondAttribute="centerX" id="iek-Pn-OQZ"/>
+                            <constraint firstItem="Fv7-y0-Gg1" firstAttribute="width" secondItem="1KA-vX-4WT" secondAttribute="width" id="lKA-NW-RrY"/>
+                            <constraint firstAttribute="centerX" secondItem="Fv7-y0-Gg1" secondAttribute="centerX" constant="-0.5" id="oQh-nN-yfm"/>
+                            <constraint firstAttribute="centerX" secondItem="s41-Pv-DNn" secondAttribute="centerX" id="oQv-xv-UDu"/>
+                            <constraint firstItem="Fv7-y0-Gg1" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" multiplier="0.58" id="pc1-dC-0a8"/>
+                            <constraint firstItem="1KA-vX-4WT" firstAttribute="height" secondItem="kh9-bI-dsS" secondAttribute="height" multiplier="1:12" id="rdx-Sf-jBu"/>
+                            <constraint firstItem="FtK-SI-pyb" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" multiplier="0.78" id="uJc-1F-HnC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1KA-vX-4WT" secondAttribute="trailing" constant="3" id="wEa-mR-Fwf"/>
+                            <constraint firstAttribute="centerX" secondItem="Hwm-mb-Z3b" secondAttribute="centerX" id="waI-uT-D9f"/>
+                            <constraint firstItem="67B-Br-Jbo" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" multiplier="0.71" id="wiX-sW-Xcx"/>
+                            <constraint firstItem="r6U-nX-IYR" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="height" multiplier="233:568" id="yU0-ma-3Ws"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="162" y="368"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="button_enter" width="315" height="55"/>
+        <image name="line" width="316" height="1"/>
+        <image name="ufrgs_logo" width="233" height="180"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
