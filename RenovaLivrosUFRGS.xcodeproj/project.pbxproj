@@ -15,6 +15,7 @@
 		386E919B1B30AC8000BAA700 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 386E919A1B30AC8000BAA700 /* Images.xcassets */; };
 		386E919E1B30AC8000BAA700 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 386E919C1B30AC8000BAA700 /* LaunchScreen.xib */; };
 		386E91AA1B30AC8000BAA700 /* RenovaLivrosUFRGSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386E91A91B30AC8000BAA700 /* RenovaLivrosUFRGSTests.swift */; };
+		387B93721B31E07A00314558 /* BookContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387B93711B31E07A00314558 /* BookContentTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		386E91A31B30AC8000BAA700 /* RenovaLivrosUFRGSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RenovaLivrosUFRGSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		386E91A81B30AC8000BAA700 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		386E91A91B30AC8000BAA700 /* RenovaLivrosUFRGSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenovaLivrosUFRGSTests.swift; sourceTree = "<group>"; };
+		387B93711B31E07A00314558 /* BookContentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookContentTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 				386E91901B30AC8000BAA700 /* AppDelegate.swift */,
 				386E91951B30AC8000BAA700 /* LoginViewController.swift */,
 				3809F8911B31161700AC82D4 /* RenewBooksViewController.swift */,
+				387B93711B31E07A00314558 /* BookContentTableViewCell.swift */,
 				386E91971B30AC8000BAA700 /* Main.storyboard */,
 				386E919A1B30AC8000BAA700 /* Images.xcassets */,
 				386E919C1B30AC8000BAA700 /* LaunchScreen.xib */,
@@ -167,6 +170,7 @@
 				TargetAttributes = {
 					386E918A1B30AC8000BAA700 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 3H3632B7CR;
 					};
 					386E91A21B30AC8000BAA700 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -219,6 +223,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				386E91961B30AC8000BAA700 /* LoginViewController.swift in Sources */,
+				387B93721B31E07A00314558 /* BookContentTableViewCell.swift in Sources */,
 				386E91911B30AC8000BAA700 /* AppDelegate.swift in Sources */,
 				386E91941B30AC8000BAA700 /* RenovaLivrosUFRGS.xcdatamodeld in Sources */,
 				3809F8921B31161700AC82D4 /* RenewBooksViewController.swift in Sources */,
@@ -348,6 +353,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = RenovaLivrosUFRGS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -358,6 +364,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = RenovaLivrosUFRGS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

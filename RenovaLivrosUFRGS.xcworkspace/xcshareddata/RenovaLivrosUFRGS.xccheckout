@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>2E98F9EA-E663-4672-806E-01625D1E8BD0</string>
+	<key>IDESourceControlProjectName</key>
+	<string>RenovaLivrosUFRGS</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>2A252312E9C971AC418060081F8E461A9E5CA602</key>
+		<string>https://github.com/MatheusCavalca/RenovaLivrosUFRGS.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>RenovaLivrosUFRGS.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>2A252312E9C971AC418060081F8E461A9E5CA602</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/MatheusCavalca/RenovaLivrosUFRGS.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>2A252312E9C971AC418060081F8E461A9E5CA602</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2A252312E9C971AC418060081F8E461A9E5CA602</string>
+			<key>IDESourceControlWCCName</key>
+			<string>RenovaLivros</string>
+		</dict>
+	</array>
+</dict>
+</plist>
