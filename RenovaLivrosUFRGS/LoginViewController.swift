@@ -38,6 +38,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func btEnter_TouchUpInside(sender: AnyObject) {
         self.fixZeros()
+        self.txtUser.resignFirstResponder()
+        self.txtPassword.resignFirstResponder()
         
         self.presentActivityIndicator(sender, disableScreen: true)
         self.lblFailureOperation.hidden = true
@@ -130,7 +132,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         loadingIndicator.startAnimating()
         self.view.addSubview(loadingIndicator)
         
-        self.view.userInteractionEnabled = disableScreen
+        self.view.userInteractionEnabled = !disableScreen
     }
     
     func dismissActivityIndicator(desiredView: AnyObject?, viewTitle:String?){

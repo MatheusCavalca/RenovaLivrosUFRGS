@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RenovaLivrosUFRGS/LoginViewController.swift"
-            timestampString = "456767758.148964"
+            timestampString = "456769658.574559"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
             landmarkName = "prepareForSegue(_:sender:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RenovaLivrosUFRGS/LoginViewController.swift"
-            timestampString = "456767758.148964"
+            timestampString = "456769658.574559"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
             landmarkName = "btEnter_TouchUpInside(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -122,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RenovaLivrosUFRGS/LoginViewController.swift"
-            timestampString = "456767758.148964"
+            timestampString = "456769658.574559"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
             landmarkName = "btEnter_TouchUpInside(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -138,11 +138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RenovaLivrosUFRGS/LoginViewController.swift"
-            timestampString = "456722161.223608"
+            timestampString = "456769658.574559"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
             landmarkName = "btEnter_TouchUpInside(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -154,27 +154,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RenovaLivrosUFRGS/RenewBooksViewController.swift"
-            timestampString = "456766417.540187"
+            timestampString = "456769120.244731"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
-            landmarkName = "btRefresh_TouchUpInside(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RenovaLivrosUFRGS/RenewBooksViewController.swift"
-            timestampString = "456767758.148964"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "138"
-            endingLineNumber = "138"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
             landmarkName = "btRefresh_TouchUpInside(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -202,11 +186,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RenovaLivrosUFRGS/RenewBooksViewController.swift"
-            timestampString = "456767758.148964"
+            timestampString = "456769572.660271"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "157"
-            endingLineNumber = "157"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
             landmarkName = "btRenew_TouchUpInside(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -218,11 +202,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RenovaLivrosUFRGS/RenewBooksViewController.swift"
-            timestampString = "456767758.148964"
+            timestampString = "456769572.660271"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "156"
-            endingLineNumber = "156"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
             landmarkName = "btRenew_TouchUpInside(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -250,27 +234,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RenovaLivrosUFRGS/RenewBooksViewController.swift"
-            timestampString = "456767758.148964"
+            timestampString = "456769572.660271"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "144"
-            endingLineNumber = "144"
-            landmarkName = "btRefresh_TouchUpInside(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RenovaLivrosUFRGS/RenewBooksViewController.swift"
-            timestampString = "456767758.148964"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "160"
-            endingLineNumber = "160"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
             landmarkName = "btRenew_TouchUpInside(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -282,11 +250,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RenovaLivrosUFRGS/LoginViewController.swift"
-            timestampString = "456767758.148964"
+            timestampString = "456769658.574559"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "141"
-            endingLineNumber = "141"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
             landmarkName = "dismissActivityIndicator(_:viewTitle:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -314,11 +282,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RenovaLivrosUFRGS/LoginViewController.swift"
-            timestampString = "456767838.469259"
+            timestampString = "456769658.574559"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
             landmarkName = "btEnter_TouchUpInside(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -330,11 +298,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RenovaLivrosUFRGS/LoginViewController.swift"
-            timestampString = "456767843.621263"
+            timestampString = "456769658.574559"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
             landmarkName = "btEnter_TouchUpInside(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -384,38 +352,6 @@
             startingLineNumber = "19"
             endingLineNumber = "19"
             landmarkName = "getCorrectUrl(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RenovaLivrosUFRGS/RenewBooksViewController.swift"
-            timestampString = "456768579.834103"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "148"
-            endingLineNumber = "148"
-            landmarkName = "btRefresh_TouchUpInside(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RenovaLivrosUFRGS/RenewBooksViewController.swift"
-            timestampString = "456768581.501761"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "147"
-            endingLineNumber = "147"
-            landmarkName = "btRefresh_TouchUpInside(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

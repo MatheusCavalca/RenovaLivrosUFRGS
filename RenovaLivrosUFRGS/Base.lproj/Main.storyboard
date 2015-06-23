@@ -65,7 +65,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ufrgs_logo" translatesAutoresizingMaskIntoConstraints="NO" id="r6U-nX-IYR">
-                                <rect key="frame" x="60" y="51" width="200" height="160"/>
+                                <rect key="frame" x="60" y="65" width="200" height="160"/>
                             </imageView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IDENTIFICAÇÃO OU SENHA INCORRETA" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="av7-R4-Pfy">
                                 <rect key="frame" x="20" y="435" width="280" height="14"/>
@@ -93,7 +93,7 @@
                             <constraint firstItem="Hwm-mb-Z3b" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" multiplier="0.63" constant="-24.839999999999975" id="XWb-FY-hKS"/>
                             <constraint firstItem="kRd-3s-2jP" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" multiplier="0.76" constant="-24.680000000000007" id="a0Z-uD-ONQ"/>
                             <constraint firstAttribute="centerX" secondItem="kRd-3s-2jP" secondAttribute="centerX" id="d1K-qB-0Wf"/>
-                            <constraint firstItem="r6U-nX-IYR" firstAttribute="centerY" secondItem="2fi-mo-0CV" secondAttribute="top" multiplier="0.3" constant="-39.400000000000006" id="dhu-TR-st3"/>
+                            <constraint firstItem="r6U-nX-IYR" firstAttribute="centerY" secondItem="2fi-mo-0CV" secondAttribute="top" multiplier="0.3" constant="-25.400000000000006" id="dhu-TR-st3"/>
                             <constraint firstAttribute="centerX" secondItem="av7-R4-Pfy" secondAttribute="centerX" id="ksK-4L-pVp"/>
                             <constraint firstItem="nBT-By-tdP" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" multiplier="0.71" constant="-25.279999999999973" id="mw6-c6-vR2"/>
                             <constraint firstAttribute="centerX" secondItem="s41-Pv-DNn" secondAttribute="centerX" id="oQv-xv-UDu"/>
@@ -344,6 +344,7 @@
                         <outlet property="btRefresh" destination="8iS-Wu-NVh" id="jPY-ks-FeD"/>
                         <outlet property="btRenew" destination="lRe-kS-bDk" id="2M8-ej-Dzh"/>
                         <outlet property="tvBookContent" destination="xro-uf-KYe" id="Ude-2Q-SQ6"/>
+                        <outlet property="viewMenuButtons" destination="iBD-Tj-VBJ" id="2Ex-29-yVr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gWh-d9-Gmq" userLabel="First Responder" sceneMemberID="firstResponder"/>

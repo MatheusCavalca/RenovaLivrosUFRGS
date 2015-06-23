@@ -15,6 +15,7 @@ class RenewBooksViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet var btLogout: UIButton!
     @IBOutlet var btRefresh: UIButton!
     @IBOutlet var btRenew: UIButton!
+    @IBOutlet var viewMenuButtons: UIView!
     
     let heightForSectionsHeader = 50 as CGFloat
     var arrayBooks = NSArray()
@@ -108,51 +109,12 @@ class RenewBooksViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     @IBAction func btRefresh_TouchUpInside(sender: AnyObject) {
-        let hasLogin = NSUserDefaults.standardUserDefaults().boolForKey("hasLoginKey")
-        var strUser:String!
-        var strPassword:String!
-        
-        if hasLogin {
-            let MyKeychainWrapper = KeychainWrapper()
-            strPassword = MyKeychainWrapper.myObjectForKey("v_Data") as! String
-            strUser = NSUserDefaults.standardUserDefaults().objectForKey("username") as! String
-        
-            Alamofire.request(.GET, "http://sabi.ufrgs.br/F?func=bor-loan&adm_library=URS50").responseString(encoding: NSUTF8StringEncoding) { (_, _, strResponse, error) in
-                var strUrl = ""
-                if (strResponse != nil) {
-                    strUrl = URLSabiParser.getCorrectUrl(strResponse!)
-                }
-                if(strUrl=="" || error != nil){
-                    var alert = UIAlertController(title: "Ocorreu uma falha", message: "Tente novamente mais tarde", preferredStyle: UIAlertControllerStyle.Alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
-                    self.presentViewController(alert, animated: true, completion: nil)
-                    return
-                }
-                var dicParameters = ["ssl_flag": "Y", "func": "login_session","login_source":"bor_loan","bor_library":"URS50","bor_id":strUser,"bor_verification":strPassword];
-                Alamofire.request(.POST, strUrl, parameters: dicParameters).responseString(encoding: NSUTF8StringEncoding) { (_, _, strData, error) in
-                    if(error != nil){
-                        var alert = UIAlertController(title: "Ocorreu uma falha", message: "Tente novamente mais tarde", preferredStyle: UIAlertControllerStyle.Alert)
-                        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
-                        self.presentViewController(alert, animated: true, completion: nil)
-                    }
-                    else if(URLSabiParser.getIdentificationFailure(strData!)){
-                        var alert = UIAlertController(title: "Ocorreu uma falha", message: "Não foi possível validar a identificação.", preferredStyle: UIAlertControllerStyle.Alert)
-                        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
-                        self.presentViewController(alert, animated: true, completion: nil)
-                        self.btLogout_TouchUpInside(self.btLogout)
-                    }
-                    else{
-                        //get all books for the next view controller
-                        self.arrayBooks = URLSabiParser.getAllBooks(strData!)
-                        self.urlRenewBooks = URLSabiParser.getUrlRenewAll(strData!)
-                        self.tvBookContent.reloadData()
-                    }
-                }
-            }
-        }
+        self.presentActivityIndicator(sender, disableScreen: true)
+        self.refreshBooks(sender)
     }
     
     @IBAction func btRenew_TouchUpInside(sender: AnyObject) {
+        self.presentActivityIndicator(sender, disableScreen: true)
         Alamofire.request(.GET, self.urlRenewBooks).responseString(encoding: NSUTF8StringEncoding) { (_, _, strReponse, error) in
             if error == nil {
                 //get all books for the next view controller
@@ -162,29 +124,30 @@ class RenewBooksViewController: UIViewController, UITableViewDelegate, UITableVi
                     alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
                     self.presentViewController(alert, animated: true, completion: nil)
                 }
-                self.btRefresh_TouchUpInside(self.btRefresh)
+                self.refreshBooks(self.btRefresh)
             }
             else {
                 var alert = UIAlertController(title: "Ocorreu uma falha", message: "Tente novamente mais tarde", preferredStyle: UIAlertControllerStyle.Alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
                 self.presentViewController(alert, animated: true, completion: nil)
             }
+            self.dismissActivityIndicator(sender, viewTitle: "RENOVAR TODOS")
         }
     }
     
     func presentActivityIndicator(desiredView: AnyObject?, disableScreen:Bool){
         if desiredView!.isKindOfClass(UIButton) {
             (desiredView as! UIButton).setTitle("", forState: UIControlState.Normal)
-            (desiredView as! UIButton).alpha = 0.3
+            (desiredView as! UIButton).alpha = 0.0
         }
         
         loadingIndicator.center = desiredView!.center;
         loadingIndicator.hidesWhenStopped = true
         loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
         loadingIndicator.startAnimating()
-        self.view.addSubview(loadingIndicator)
+        self.viewMenuButtons.addSubview(loadingIndicator)
         
-        self.view.userInteractionEnabled = disableScreen
+        self.view.userInteractionEnabled = !disableScreen
     }
     
     func dismissActivityIndicator(desiredView: AnyObject?, viewTitle:String?){
@@ -197,5 +160,53 @@ class RenewBooksViewController: UIViewController, UITableViewDelegate, UITableVi
         loadingIndicator.removeFromSuperview()
     }
     
+    func refreshBooks(sender: AnyObject){
+        let hasLogin = NSUserDefaults.standardUserDefaults().boolForKey("hasLoginKey")
+        var strUser:String!
+        var strPassword:String!
+        
+        if hasLogin {
+            let MyKeychainWrapper = KeychainWrapper()
+            strPassword = MyKeychainWrapper.myObjectForKey("v_Data") as! String
+            strUser = NSUserDefaults.standardUserDefaults().objectForKey("username") as! String
+            
+            Alamofire.request(.GET, "http://sabi.ufrgs.br/F?func=bor-loan&adm_library=URS50").responseString(encoding: NSUTF8StringEncoding) { (_, _, strResponse, error) in
+                var strUrl = ""
+                if (strResponse != nil) {
+                    strUrl = URLSabiParser.getCorrectUrl(strResponse!)
+                }
+                if(strUrl=="" || error != nil){
+                    var alert = UIAlertController(title: "Ocorreu uma falha", message: "Tente novamente mais tarde", preferredStyle: UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                    self.dismissActivityIndicator(sender, viewTitle: "ATUALIZAR")
+                    return
+                }
+                var dicParameters = ["ssl_flag": "Y", "func": "login_session","login_source":"bor_loan","bor_library":"URS50","bor_id":strUser,"bor_verification":strPassword];
+                Alamofire.request(.POST, strUrl, parameters: dicParameters).responseString(encoding: NSUTF8StringEncoding) { (_, _, strData, error) in
+                    if(error != nil){
+                        var alert = UIAlertController(title: "Ocorreu uma falha", message: "Tente novamente mais tarde", preferredStyle: UIAlertControllerStyle.Alert)
+                        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+                        self.presentViewController(alert, animated: true, completion: nil)
+                        self.dismissActivityIndicator(sender, viewTitle: "ATUALIZAR")
+                    }
+                    else if(URLSabiParser.getIdentificationFailure(strData!)){
+                        var alert = UIAlertController(title: "Ocorreu uma falha", message: "Não foi possível validar a identificação.", preferredStyle: UIAlertControllerStyle.Alert)
+                        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+                        self.presentViewController(alert, animated: true, completion: nil)
+                        self.dismissActivityIndicator(sender, viewTitle: "ATUALIZAR")
+                        self.btLogout_TouchUpInside(self.btLogout)
+                    }
+                    else{
+                        //get all books for the next view controller
+                        self.arrayBooks = URLSabiParser.getAllBooks(strData!)
+                        self.urlRenewBooks = URLSabiParser.getUrlRenewAll(strData!)
+                        self.tvBookContent.reloadData()
+                        self.dismissActivityIndicator(sender, viewTitle: "ATUALIZAR")
+                    }
+                }
+            }
+        }
+    }
 
 }
