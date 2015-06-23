@@ -20,6 +20,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     var arrayBooks = NSArray()
     var urlRenewBooks:String!
     var showingKeyboard = false
+    var loadingIndicator = UIActivityIndicatorView(frame: CGRectMake(0, 0, 37, 37)) as UIActivityIndicatorView
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,19 +39,25 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBAction func btEnter_TouchUpInside(sender: AnyObject) {
         self.fixZeros()
         
+        self.presentActivityIndicator(sender)
         self.lblFailureOperation.hidden = true
         Alamofire.request(.GET, "http://sabi.ufrgs.br/F?func=bor-loan&adm_library=URS50").responseString(encoding: NSUTF8StringEncoding) { (_, _, strReponse, error) in
             var strUrl = URLSabiParser.getCorrectUrl(strReponse!)
-            if(strUrl==""){
+            if(strUrl=="" || error != nil){
                 self.lblFailureOperation.text = "OCORREU UMA FALHA, TENTE NOVAMENTE MAIS TARDE"
                 self.lblFailureOperation.hidden = false
+                self.dismissActivityIndicator(sender, viewTitle: "Entrar")
                 return
             }
             var dicParameters = ["ssl_flag": "Y", "func": "login_session","login_source":"bor_loan","bor_library":"URS50","bor_id":self.txtUser.text,"bor_verification":self.txtPassword.text];
+            
             Alamofire.request(.POST, strUrl, parameters: dicParameters).responseString(encoding: NSUTF8StringEncoding) { (_, _, strData, error) in
                 if(URLSabiParser.getIdentificationFailure(strData!)){
                     self.lblFailureOperation.text = "IDENTIFICAÇÃO OU SENHA INCORRETA"
                     self.lblFailureOperation.hidden = false
+                }
+                else if(error != nil){
+                    self.dismissActivityIndicator(sender, viewTitle: "Entrar")
                 }
                 else{
                     //get all books for the next view controller
@@ -66,6 +73,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     
                     self.performSegueWithIdentifier("segueRenewBooks", sender: self)
                 }
+                
+                self.dismissActivityIndicator(sender, viewTitle: "Entrar")
             }
         }
     }
@@ -104,5 +113,26 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             nextViewController.arrayBooks = self.arrayBooks
             nextViewController.urlRenewBooks = self.urlRenewBooks
         }
+    }
+    
+    func presentActivityIndicator(desiredView: AnyObject?){
+        if desiredView!.isKindOfClass(UIButton) {
+            (desiredView as! UIButton).setTitle("", forState: UIControlState.Normal)
+        }
+        
+        loadingIndicator.center = desiredView!.center;
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.WhiteLarge
+        loadingIndicator.startAnimating()
+        self.view.addSubview(loadingIndicator)
+    }
+    
+    func dismissActivityIndicator(desiredView: AnyObject?, viewTitle:String?){
+        if desiredView!.isKindOfClass(UIButton) {
+            (desiredView as! UIButton).setTitle(viewTitle, forState: UIControlState.Normal)
+        }
+        
+        loadingIndicator.stopAnimating()
+        loadingIndicator.removeFromSuperview()
     }
 }
