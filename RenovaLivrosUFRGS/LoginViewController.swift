@@ -37,6 +37,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func btEnter_TouchUpInside(sender: AnyObject) {
+        if self.txtUser.text == "" || self.txtPassword.text == ""{
+            self.lblFailureOperation.text = "IDENTIFICAÇÃO OU SENHA INCORRETA"
+            self.lblFailureOperation.hidden = false
+            return
+        }
+        
         self.fixZeros()
         self.txtUser.resignFirstResponder()
         self.txtPassword.resignFirstResponder()
