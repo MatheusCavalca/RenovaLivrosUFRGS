@@ -20,7 +20,7 @@ We do not have any link with UFRGS and we do not have intention to earn money wi
 
 Open Source
 -----------
-We've made it open-source to share the way we are using Swift, Interface Builder and Xcode.
+We've made it open source to share the way we are using Swift, Interface Builder and Xcode.
 
 Feel free to submit a pull request if you have any improvement to sugest. If you have a feedback or wants to talk with me you can send me an e-mail: cavalca.matheus [at] gmail.com
 
