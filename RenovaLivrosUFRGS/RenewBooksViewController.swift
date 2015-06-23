@@ -39,8 +39,21 @@ class RenewBooksViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
+        if arrayBooks.count > 0 {
+            return 1
+        }
+        else{
+            let labelSize = 20 as CGFloat
+            var label = UILabel(frame: CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height))
+            label.textAlignment = NSTextAlignment.Center
+            label.font = UIFont(name: "Avenir-Book", size: 14)
+            label.textColor =  UIColor(white: 0.8, alpha: 1.0)
+            label.text = "NENHUM LIVRO ENCONTRADO"
+            label.sizeToFit()
+            self.tvBookContent.backgroundView = label
+            return 0;
+        }
+       }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return heightForSectionsHeader
@@ -74,10 +87,9 @@ class RenewBooksViewController: UIViewController, UITableViewDelegate, UITableVi
 
         cell.lblBookName.text = (self.arrayBooks[indexPath.row] as! Book).title
         
-        cell.lblBuilding.text = "DIR"
         let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "dd/mm/yyyy"
-        let returnDate = (self.arrayBooks[indexPath.row] as! Book).returnDate
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        var returnDate = (self.arrayBooks[indexPath.row] as! Book).returnDate
         cell.lblExpirationDate.text = dateFormatter.stringFromDate(returnDate)
         cell.lblBuilding.text = (self.arrayBooks[indexPath.row] as! Book).building
         
@@ -86,12 +98,14 @@ class RenewBooksViewController: UIViewController, UITableViewDelegate, UITableVi
             cell.lblPenalty.hidden = true
         }
         else {
-            cell.lblPenalty.text = "R$" + (self.arrayBooks[indexPath.row] as! Book).penalty
+            cell.lblPenalty.text = (self.arrayBooks[indexPath.row] as! Book).penalty
         }
         
         let currentDate = NSDate()
-        var dateComparisionResult:NSComparisonResult = currentDate.compare(returnDate)
-        if dateComparisionResult == NSComparisonResult.OrderedAscending || dateComparisionResult == NSComparisonResult.OrderedSame {
+        //ADD one day to get correct approach when user has to return book in the same day as currentDate(Today)
+        returnDate = returnDate.dateByAddingTimeInterval(60*60*24)
+        var dateComparisionResult:NSComparisonResult = returnDate.compare(currentDate)
+        if dateComparisionResult == NSComparisonResult.OrderedAscending {
             cell.imgFlagSituation.image = UIImage(named: "flag_penalty")
         }
         else{
@@ -114,24 +128,26 @@ class RenewBooksViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     @IBAction func btRenew_TouchUpInside(sender: AnyObject) {
-        self.presentActivityIndicator(sender, disableScreen: true)
-        Alamofire.request(.GET, self.urlRenewBooks).responseString(encoding: NSUTF8StringEncoding) { (_, _, strReponse, error) in
-            if error == nil {
-                //get all books for the next view controller
-                if !URLSabiParser.getRenewOperationStatus(strReponse!) {
-                    //pelo menos um deu problema
-                    var alert = UIAlertController(title: "Renovação parcial", message: "Ao menos um livro não pode ser renovado.", preferredStyle: UIAlertControllerStyle.Alert)
+        if arrayBooks.count > 0 {
+            self.presentActivityIndicator(sender, disableScreen: true)
+            Alamofire.request(.GET, self.urlRenewBooks).responseString(encoding: NSUTF8StringEncoding) { (_, _, strReponse, error) in
+                if error == nil {
+                    //get all books for the next view controller
+                    if !URLSabiParser.getRenewOperationStatus(strReponse!) {
+                        //pelo menos um deu problema
+                        var alert = UIAlertController(title: "Renovação parcial", message: "Ao menos um livro não pode ser renovado.", preferredStyle: UIAlertControllerStyle.Alert)
+                        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+                        self.presentViewController(alert, animated: true, completion: nil)
+                    }
+                    self.refreshBooks(self.btRefresh)
+                }
+                else {
+                    var alert = UIAlertController(title: "Ocorreu uma falha", message: "Tente novamente mais tarde", preferredStyle: UIAlertControllerStyle.Alert)
                     alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
                     self.presentViewController(alert, animated: true, completion: nil)
                 }
-                self.refreshBooks(self.btRefresh)
+                self.dismissActivityIndicator(sender, viewTitle: "RENOVAR TODOS")
             }
-            else {
-                var alert = UIAlertController(title: "Ocorreu uma falha", message: "Tente novamente mais tarde", preferredStyle: UIAlertControllerStyle.Alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
-                self.presentViewController(alert, animated: true, completion: nil)
-            }
-            self.dismissActivityIndicator(sender, viewTitle: "RENOVAR TODOS")
         }
     }
     
@@ -146,7 +162,6 @@ class RenewBooksViewController: UIViewController, UITableViewDelegate, UITableVi
         loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
         loadingIndicator.startAnimating()
         self.viewMenuButtons.addSubview(loadingIndicator)
-        
         self.view.userInteractionEnabled = !disableScreen
     }
     

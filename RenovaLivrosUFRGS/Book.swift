@@ -20,7 +20,7 @@ class Book: NSObject {
         self.author = author
         
         let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "dd/mm/yyyy"
+        dateFormatter.dateFormat = "dd/MM/yyyy"
         let date = dateFormatter.dateFromString(returnDate)
         self.returnDate = date!
         
