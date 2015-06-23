@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3809F8921B31161700AC82D4 /* RenewBooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3809F8911B31161700AC82D4 /* RenewBooksViewController.swift */; };
+		380DCBC91B331BBA008FDF17 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380DCBC81B331BBA008FDF17 /* Book.swift */; };
+		380DCBD01B332763008FDF17 /* KeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 380DCBCF1B332763008FDF17 /* KeychainWrapper.m */; };
 		386E91911B30AC8000BAA700 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386E91901B30AC8000BAA700 /* AppDelegate.swift */; };
 		386E91941B30AC8000BAA700 /* RenovaLivrosUFRGS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 386E91921B30AC8000BAA700 /* RenovaLivrosUFRGS.xcdatamodeld */; };
 		386E91961B30AC8000BAA700 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386E91951B30AC8000BAA700 /* LoginViewController.swift */; };
@@ -16,6 +18,8 @@
 		386E919E1B30AC8000BAA700 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 386E919C1B30AC8000BAA700 /* LaunchScreen.xib */; };
 		386E91AA1B30AC8000BAA700 /* RenovaLivrosUFRGSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386E91A91B30AC8000BAA700 /* RenovaLivrosUFRGSTests.swift */; };
 		387B93721B31E07A00314558 /* BookContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387B93711B31E07A00314558 /* BookContentTableViewCell.swift */; };
+		38C5F3CA1B326A78001DE5F4 /* URLSabiParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C5F3C91B326A78001DE5F4 /* URLSabiParser.swift */; };
+		A6080EF42DD970388FA0EEB2 /* Pods_RenovaLivrosUFRGS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAAC29A20F6B6502D5AC90DC /* Pods_RenovaLivrosUFRGS.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,7 +33,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2F03C23FC99F7BF32CAD0FF3 /* Pods-RenovaLivrosUFRGS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RenovaLivrosUFRGS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RenovaLivrosUFRGS/Pods-RenovaLivrosUFRGS.debug.xcconfig"; sourceTree = "<group>"; };
 		3809F8911B31161700AC82D4 /* RenewBooksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RenewBooksViewController.swift; sourceTree = "<group>"; };
+		380DCBC81B331BBA008FDF17 /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		380DCBCD1B332762008FDF17 /* RenovaLivrosUFRGS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RenovaLivrosUFRGS-Bridging-Header.h"; sourceTree = "<group>"; };
+		380DCBCE1B332763008FDF17 /* KeychainWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainWrapper.h; sourceTree = "<group>"; };
+		380DCBCF1B332763008FDF17 /* KeychainWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainWrapper.m; sourceTree = "<group>"; };
 		386E918B1B30AC8000BAA700 /* RenovaLivrosUFRGS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RenovaLivrosUFRGS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		386E918F1B30AC8000BAA700 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		386E91901B30AC8000BAA700 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -42,6 +51,9 @@
 		386E91A81B30AC8000BAA700 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		386E91A91B30AC8000BAA700 /* RenovaLivrosUFRGSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenovaLivrosUFRGSTests.swift; sourceTree = "<group>"; };
 		387B93711B31E07A00314558 /* BookContentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookContentTableViewCell.swift; sourceTree = "<group>"; };
+		38C5F3C91B326A78001DE5F4 /* URLSabiParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSabiParser.swift; sourceTree = "<group>"; };
+		BAAC29A20F6B6502D5AC90DC /* Pods_RenovaLivrosUFRGS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RenovaLivrosUFRGS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB042244EAE3A30DA7703D73 /* Pods-RenovaLivrosUFRGS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RenovaLivrosUFRGS.release.xcconfig"; path = "Pods/Target Support Files/Pods-RenovaLivrosUFRGS/Pods-RenovaLivrosUFRGS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6080EF42DD970388FA0EEB2 /* Pods_RenovaLivrosUFRGS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,12 +75,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		380DCBCA1B33208B008FDF17 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				386E91951B30AC8000BAA700 /* LoginViewController.swift */,
+				3809F8911B31161700AC82D4 /* RenewBooksViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		380DCBCB1B332093008FDF17 /* NSObjects */ = {
+			isa = PBXGroup;
+			children = (
+				38C5F3C91B326A78001DE5F4 /* URLSabiParser.swift */,
+				380DCBC81B331BBA008FDF17 /* Book.swift */,
+			);
+			name = NSObjects;
+			sourceTree = "<group>";
+		};
+		380DCBCC1B3320A1008FDF17 /* CustomObjects */ = {
+			isa = PBXGroup;
+			children = (
+				387B93711B31E07A00314558 /* BookContentTableViewCell.swift */,
+			);
+			name = CustomObjects;
+			sourceTree = "<group>";
+		};
 		386E91821B30AC8000BAA700 = {
 			isa = PBXGroup;
 			children = (
 				386E918D1B30AC8000BAA700 /* RenovaLivrosUFRGS */,
 				386E91A61B30AC8000BAA700 /* RenovaLivrosUFRGSTests */,
 				386E918C1B30AC8000BAA700 /* Products */,
+				86811FDE0B087BEF70B1BE35 /* Pods */,
+				A195A59DFD841908EEADA41C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,10 +124,10 @@
 		386E918D1B30AC8000BAA700 /* RenovaLivrosUFRGS */ = {
 			isa = PBXGroup;
 			children = (
+				380DCBCC1B3320A1008FDF17 /* CustomObjects */,
+				380DCBCB1B332093008FDF17 /* NSObjects */,
+				380DCBCA1B33208B008FDF17 /* ViewControllers */,
 				386E91901B30AC8000BAA700 /* AppDelegate.swift */,
-				386E91951B30AC8000BAA700 /* LoginViewController.swift */,
-				3809F8911B31161700AC82D4 /* RenewBooksViewController.swift */,
-				387B93711B31E07A00314558 /* BookContentTableViewCell.swift */,
 				386E91971B30AC8000BAA700 /* Main.storyboard */,
 				386E919A1B30AC8000BAA700 /* Images.xcassets */,
 				386E919C1B30AC8000BAA700 /* LaunchScreen.xib */,
@@ -99,7 +140,10 @@
 		386E918E1B30AC8000BAA700 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				380DCBCE1B332763008FDF17 /* KeychainWrapper.h */,
+				380DCBCF1B332763008FDF17 /* KeychainWrapper.m */,
 				386E918F1B30AC8000BAA700 /* Info.plist */,
+				380DCBCD1B332762008FDF17 /* RenovaLivrosUFRGS-Bridging-Header.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -121,6 +165,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		86811FDE0B087BEF70B1BE35 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2F03C23FC99F7BF32CAD0FF3 /* Pods-RenovaLivrosUFRGS.debug.xcconfig */,
+				BB042244EAE3A30DA7703D73 /* Pods-RenovaLivrosUFRGS.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A195A59DFD841908EEADA41C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BAAC29A20F6B6502D5AC90DC /* Pods_RenovaLivrosUFRGS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -128,9 +189,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 386E91AD1B30AC8000BAA700 /* Build configuration list for PBXNativeTarget "RenovaLivrosUFRGS" */;
 			buildPhases = (
+				97D73CB82B94D888CD7E915C /* Check Pods Manifest.lock */,
 				386E91871B30AC8000BAA700 /* Sources */,
 				386E91881B30AC8000BAA700 /* Frameworks */,
 				386E91891B30AC8000BAA700 /* Resources */,
+				2D4D1A1FCFB070B6D9A6F623 /* Embed Pods Frameworks */,
+				9C190947EA8DF481DA655FB9 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -165,6 +229,7 @@
 		386E91831B30AC8000BAA700 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Matheus Cavalca";
 				TargetAttributes = {
@@ -217,16 +282,67 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2D4D1A1FCFB070B6D9A6F623 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RenovaLivrosUFRGS/Pods-RenovaLivrosUFRGS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		97D73CB82B94D888CD7E915C /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9C190947EA8DF481DA655FB9 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RenovaLivrosUFRGS/Pods-RenovaLivrosUFRGS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		386E91871B30AC8000BAA700 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				386E91961B30AC8000BAA700 /* LoginViewController.swift in Sources */,
+				380DCBD01B332763008FDF17 /* KeychainWrapper.m in Sources */,
 				387B93721B31E07A00314558 /* BookContentTableViewCell.swift in Sources */,
+				380DCBC91B331BBA008FDF17 /* Book.swift in Sources */,
 				386E91911B30AC8000BAA700 /* AppDelegate.swift in Sources */,
 				386E91941B30AC8000BAA700 /* RenovaLivrosUFRGS.xcdatamodeld in Sources */,
 				3809F8921B31161700AC82D4 /* RenewBooksViewController.swift in Sources */,
+				38C5F3CA1B326A78001DE5F4 /* URLSabiParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,23 +467,32 @@
 		};
 		386E91AE1B30AC8000BAA700 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2F03C23FC99F7BF32CAD0FF3 /* Pods-RenovaLivrosUFRGS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = RenovaLivrosUFRGS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "RenovaLivrosUFRGS/RenovaLivrosUFRGS-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		386E91AF1B30AC8000BAA700 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB042244EAE3A30DA7703D73 /* Pods-RenovaLivrosUFRGS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = RenovaLivrosUFRGS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "RenovaLivrosUFRGS/RenovaLivrosUFRGS-Bridging-Header.h";
 			};
 			name = Release;
 		};

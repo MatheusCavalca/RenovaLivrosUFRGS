@@ -7,11 +7,18 @@
 //
 
 import UIKit
+import Alamofire
 
 class RenewBooksViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var tvBookContent: UITableView!
+    @IBOutlet var btLogout: UIButton!
+    @IBOutlet var btRefresh: UIButton!
+    @IBOutlet var btRenew: UIButton!
+    
     let heightForSectionsHeader = 50 as CGFloat
+    var arrayBooks = NSArray()
+    var urlRenewBooks:String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,11 +31,12 @@ class RenewBooksViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(tableView:UITableView, numberOfRowsInSection section:Int) -> Int
     {
-        return 5
+        return arrayBooks.count
+//        return 10
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 2
+        return 1
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -49,32 +57,104 @@ class RenewBooksViewController: UIViewController, UITableViewDelegate, UITableVi
         let labelSize = 20 as CGFloat
         var label = UILabel(frame: CGRectMake(self.view.frame.size.width/12, heightForSectionsHeader/2-labelSize/2, 200, labelSize))
         label.textAlignment = NSTextAlignment.Left
-        label.font = UIFont(name: "Avenir-Book", size: 17)
+        label.font = UIFont(name: "Avenir-Book", size: 14)
         label.textColor =  UIColor(white: 0.5, alpha: 1.0)
-        if section==0{
-            label.text = "Retirados"
-            customView.addSubview(label)
-        }
-        else{
-            label.text = "Devolvidos"
-            customView.addSubview(label)
-        }
-        
+        label.text = "RETIRADOS"
+        customView.addSubview(label)
+    
         return customView
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCellWithIdentifier("CellBookContent") as! BookContentTableViewCell
-        cell.lblBookName.text = "Teste do livro nome"
+
+        cell.lblBookName.text = (self.arrayBooks[indexPath.row] as! Book).title
+        
         cell.lblBuilding.text = "DIR"
-        cell.lblExpirationDate.text = "02/02/2000"
-        cell.imgFlagSituation.image = UIImage(named: "flag_penalty")
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "dd/mm/yyyy"
+        let returnDate = (self.arrayBooks[indexPath.row] as! Book).returnDate
+        cell.lblExpirationDate.text = dateFormatter.stringFromDate(returnDate)
+        cell.lblBuilding.text = (self.arrayBooks[indexPath.row] as! Book).building
+        
+        let bookPenalty = (self.arrayBooks[indexPath.row] as! Book).penalty
+        if bookPenalty == "Sem multa" {
+            cell.lblPenalty.hidden = true
+        }
+        else {
+            cell.lblPenalty.text = "R$" + (self.arrayBooks[indexPath.row] as! Book).penalty
+        }
+        
+        let currentDate = NSDate()
+        var dateComparisionResult:NSComparisonResult = currentDate.compare(returnDate)
+        if dateComparisionResult == NSComparisonResult.OrderedAscending || dateComparisionResult == NSComparisonResult.OrderedSame {
+            cell.imgFlagSituation.image = UIImage(named: "flag_penalty")
+        }
+        else{
+            cell.imgFlagSituation.image = UIImage(named: "flag_onTime")
+        }
         return cell
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 75
+    }
+    
+    @IBAction func btLogout_TouchUpInside(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    @IBAction func btRefresh_TouchUpInside(sender: AnyObject) {
+        let hasLogin = NSUserDefaults.standardUserDefaults().boolForKey("hasLoginKey")
+        var strUser:String!
+        var strPassword:String!
+        
+        if hasLogin {
+            let MyKeychainWrapper = KeychainWrapper()
+            strPassword = MyKeychainWrapper.myObjectForKey("v_Data") as! String
+            strUser = NSUserDefaults.standardUserDefaults().objectForKey("username") as! String
+        
+            Alamofire.request(.GET, "http://sabi.ufrgs.br/F?func=bor-loan&adm_library=URS50").responseString(encoding: NSUTF8StringEncoding) { (_, _, strReponse, error) in
+                
+                var strUrl = URLSabiParser.getCorrectUrl(strReponse!)
+                if(strUrl==""){
+                    //TODO: Pass a message of logout to user
+                    self.btLogout_TouchUpInside(self.btLogout)
+                    return
+                }
+                var dicParameters = ["ssl_flag": "Y", "func": "login_session","login_source":"bor_loan","bor_library":"URS50","bor_id":strUser,"bor_verification":strPassword];
+                Alamofire.request(.POST, strUrl, parameters: dicParameters).responseString(encoding: NSUTF8StringEncoding) { (_, _, strData, error) in
+                    if(URLSabiParser.getIdentificationFailure(strData!)){
+                        self.btLogout_TouchUpInside(self.btLogout)
+                    }
+                    else{
+                        //get all books for the next view controller
+                        self.arrayBooks = URLSabiParser.getAllBooks(strData!)
+                        self.urlRenewBooks = URLSabiParser.getCorrectUrl(strData!)
+                        self.tvBookContent.reloadData()
+                    }
+                }
+            }
+        }
+    }
+    
+    @IBAction func btRenew_TouchUpInside(sender: AnyObject) {
+        Alamofire.request(.GET, self.urlRenewBooks).responseString(encoding: NSUTF8StringEncoding) { (_, _, strReponse, error) in
+            if error == nil {
+                //get all books for the next view controller
+                if !URLSabiParser.getRenewOperationStatus(strReponse!) {
+                    //pelo menos um deu problema
+                    var alert = UIAlertController(title: "Renovação parcial", message: "Ao menos um livro não pode ser renovado.", preferredStyle: UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                }
+                self.btRefresh_TouchUpInside(self.btRefresh)
+            }
+            else {
+                self.btLogout_TouchUpInside(self.btLogout)
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {

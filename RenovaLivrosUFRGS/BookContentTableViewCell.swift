@@ -14,6 +14,7 @@ class BookContentTableViewCell: UITableViewCell {
     @IBOutlet var lblExpirationDate: UILabel!
     @IBOutlet var lblBuilding: UILabel!
     @IBOutlet var imgFlagSituation: UIImageView!
+    @IBOutlet var lblPenalty: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
