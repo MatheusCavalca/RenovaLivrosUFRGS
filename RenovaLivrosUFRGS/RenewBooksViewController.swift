@@ -20,6 +20,8 @@ class RenewBooksViewController: UIViewController, UITableViewDelegate, UITableVi
     var arrayBooks = NSArray()
     var urlRenewBooks:String!
     
+    var loadingIndicator = UIActivityIndicatorView(frame: CGRectMake(0, 0, 37, 37)) as UIActivityIndicatorView
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tvBookContent.delegate = self
@@ -115,23 +117,34 @@ class RenewBooksViewController: UIViewController, UITableViewDelegate, UITableVi
             strPassword = MyKeychainWrapper.myObjectForKey("v_Data") as! String
             strUser = NSUserDefaults.standardUserDefaults().objectForKey("username") as! String
         
-            Alamofire.request(.GET, "http://sabi.ufrgs.br/F?func=bor-loan&adm_library=URS50").responseString(encoding: NSUTF8StringEncoding) { (_, _, strReponse, error) in
-                
-                var strUrl = URLSabiParser.getCorrectUrl(strReponse!)
-                if(strUrl==""){
-                    //TODO: Pass a message of logout to user
-                    self.btLogout_TouchUpInside(self.btLogout)
+            Alamofire.request(.GET, "http://sabi.ufrgs.br/F?func=bor-loan&adm_library=URS50").responseString(encoding: NSUTF8StringEncoding) { (_, _, strResponse, error) in
+                var strUrl = ""
+                if (strResponse != nil) {
+                    strUrl = URLSabiParser.getCorrectUrl(strResponse!)
+                }
+                if(strUrl=="" || error != nil){
+                    var alert = UIAlertController(title: "Ocorreu uma falha", message: "Tente novamente mais tarde", preferredStyle: UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+                    self.presentViewController(alert, animated: true, completion: nil)
                     return
                 }
                 var dicParameters = ["ssl_flag": "Y", "func": "login_session","login_source":"bor_loan","bor_library":"URS50","bor_id":strUser,"bor_verification":strPassword];
                 Alamofire.request(.POST, strUrl, parameters: dicParameters).responseString(encoding: NSUTF8StringEncoding) { (_, _, strData, error) in
-                    if(URLSabiParser.getIdentificationFailure(strData!)){
+                    if(error != nil){
+                        var alert = UIAlertController(title: "Ocorreu uma falha", message: "Tente novamente mais tarde", preferredStyle: UIAlertControllerStyle.Alert)
+                        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+                        self.presentViewController(alert, animated: true, completion: nil)
+                    }
+                    else if(URLSabiParser.getIdentificationFailure(strData!)){
+                        var alert = UIAlertController(title: "Ocorreu uma falha", message: "Não foi possível validar a identificação.", preferredStyle: UIAlertControllerStyle.Alert)
+                        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+                        self.presentViewController(alert, animated: true, completion: nil)
                         self.btLogout_TouchUpInside(self.btLogout)
                     }
                     else{
                         //get all books for the next view controller
                         self.arrayBooks = URLSabiParser.getAllBooks(strData!)
-                        self.urlRenewBooks = URLSabiParser.getCorrectUrl(strData!)
+                        self.urlRenewBooks = URLSabiParser.getUrlRenewAll(strData!)
                         self.tvBookContent.reloadData()
                     }
                 }
@@ -152,14 +165,36 @@ class RenewBooksViewController: UIViewController, UITableViewDelegate, UITableVi
                 self.btRefresh_TouchUpInside(self.btRefresh)
             }
             else {
-                self.btLogout_TouchUpInside(self.btLogout)
+                var alert = UIAlertController(title: "Ocorreu uma falha", message: "Tente novamente mais tarde", preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
             }
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func presentActivityIndicator(desiredView: AnyObject?, disableScreen:Bool){
+        if desiredView!.isKindOfClass(UIButton) {
+            (desiredView as! UIButton).setTitle("", forState: UIControlState.Normal)
+            (desiredView as! UIButton).alpha = 0.3
+        }
+        
+        loadingIndicator.center = desiredView!.center;
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
+        loadingIndicator.startAnimating()
+        self.view.addSubview(loadingIndicator)
+        
+        self.view.userInteractionEnabled = disableScreen
+    }
+    
+    func dismissActivityIndicator(desiredView: AnyObject?, viewTitle:String?){
+        if desiredView!.isKindOfClass(UIButton) {
+            (desiredView as! UIButton).setTitle(viewTitle, forState: UIControlState.Normal)
+            (desiredView as! UIButton).alpha = 1
+        }
+        self.view.userInteractionEnabled = true
+        loadingIndicator.stopAnimating()
+        loadingIndicator.removeFromSuperview()
     }
     
 

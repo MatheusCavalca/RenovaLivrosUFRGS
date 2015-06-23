@@ -39,10 +39,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBAction func btEnter_TouchUpInside(sender: AnyObject) {
         self.fixZeros()
         
-        self.presentActivityIndicator(sender)
+        self.presentActivityIndicator(sender, disableScreen: true)
         self.lblFailureOperation.hidden = true
-        Alamofire.request(.GET, "http://sabi.ufrgs.br/F?func=bor-loan&adm_library=URS50").responseString(encoding: NSUTF8StringEncoding) { (_, _, strReponse, error) in
-            var strUrl = URLSabiParser.getCorrectUrl(strReponse!)
+        Alamofire.request(.GET, "http://sabi.ufrgs.br/F?func=bor-loan&adm_library=URS50").responseString(encoding: NSUTF8StringEncoding) { (_, _, strResponse, error) in
+            var strUrl = String()
+            if (strResponse != nil) {
+                strUrl = URLSabiParser.getCorrectUrl(strResponse!)
+            }
             if(strUrl=="" || error != nil){
                 self.lblFailureOperation.text = "OCORREU UMA FALHA, TENTE NOVAMENTE MAIS TARDE"
                 self.lblFailureOperation.hidden = false
@@ -52,12 +55,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             var dicParameters = ["ssl_flag": "Y", "func": "login_session","login_source":"bor_loan","bor_library":"URS50","bor_id":self.txtUser.text,"bor_verification":self.txtPassword.text];
             
             Alamofire.request(.POST, strUrl, parameters: dicParameters).responseString(encoding: NSUTF8StringEncoding) { (_, _, strData, error) in
-                if(URLSabiParser.getIdentificationFailure(strData!)){
-                    self.lblFailureOperation.text = "IDENTIFICAÇÃO OU SENHA INCORRETA"
+                if(error != nil){
+                    self.lblFailureOperation.text = "OCORREU UMA FALHA, TENTE NOVAMENTE MAIS TARDE"
                     self.lblFailureOperation.hidden = false
                 }
-                else if(error != nil){
-                    self.dismissActivityIndicator(sender, viewTitle: "Entrar")
+                else if(URLSabiParser.getIdentificationFailure(strData!)){
+                    self.lblFailureOperation.text = "IDENTIFICAÇÃO OU SENHA INCORRETA"
+                    self.lblFailureOperation.hidden = false
                 }
                 else{
                     //get all books for the next view controller
@@ -115,7 +119,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func presentActivityIndicator(desiredView: AnyObject?){
+    func presentActivityIndicator(desiredView: AnyObject?, disableScreen:Bool){
         if desiredView!.isKindOfClass(UIButton) {
             (desiredView as! UIButton).setTitle("", forState: UIControlState.Normal)
         }
@@ -125,13 +129,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.WhiteLarge
         loadingIndicator.startAnimating()
         self.view.addSubview(loadingIndicator)
+        
+        self.view.userInteractionEnabled = disableScreen
     }
     
     func dismissActivityIndicator(desiredView: AnyObject?, viewTitle:String?){
         if desiredView!.isKindOfClass(UIButton) {
             (desiredView as! UIButton).setTitle(viewTitle, forState: UIControlState.Normal)
         }
-        
+        self.view.userInteractionEnabled = true
         loadingIndicator.stopAnimating()
         loadingIndicator.removeFromSuperview()
     }
