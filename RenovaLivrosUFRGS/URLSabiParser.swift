@@ -124,10 +124,12 @@ class URLSabiParser: NSObject {
         
         for var i=0; i<titles.count; i++ {
             let currentBook = Book(title: titles[i] as! String, author: authors[i] as! String, returnDate: returnDates[i] as! String, penalty: penalties[i] as! String, building: buildings[i] as! String)
-            
-//            let currentBook = Book(title: titles[i] as! String, author: authors[i] as! String, returnDate: "22/06/2015", penalty: "R$5,99", building: buildings[i] as! String)
             books.addObject(currentBook)
         }
+        
+//        let currentBook = Book(title:"Introdução ao direito civil",author:"Matheus Cavalca", returnDate: "15/06/2015", penalty: "R$2,99", building: "DIR")
+//        books.addObject(currentBook)
+        
         return books
     }
     

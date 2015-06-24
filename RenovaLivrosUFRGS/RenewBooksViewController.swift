@@ -35,7 +35,6 @@ class RenewBooksViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(tableView:UITableView, numberOfRowsInSection section:Int) -> Int
     {
         return arrayBooks.count
-//        return 10
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -60,7 +59,6 @@ class RenewBooksViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
         let imageName = "flag_returned"
         let image = UIImage(named: imageName)
         let imageView = UIImageView(image: image!)
