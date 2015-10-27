@@ -92,7 +92,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+        if textField == self.txtUser {
+            self.txtPassword.becomeFirstResponder()
+        } else {
+            if textField == self.txtPassword {
+                self.btEnter_TouchUpInside(self.btEnter)
+            }
+            textField.resignFirstResponder()
+        }
         return true
     }
     
