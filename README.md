@@ -27,4 +27,4 @@ Feel free to submit a pull request if you have any improvement to sugest. If you
 Screenshots
 -----------
 
-![alt tag](https://github.com/MatheusCavalca/RenovaLivrosUFRGS/blob/master/RenovaLivrosUFRGS/Images.xcassets/Screen_1.imageset/Screen%201%40iPhone6.png) ![alt tag](https://github.com/MatheusCavalca/RenovaLivrosUFRGS/blob/master/RenovaLivrosUFRGS/Images.xcassets/Screen_2.imageset/Screen%202%40iPhone6.png)
+![alt tag](https://github.com/MatheusCavalca/RenovaLivrosUFRGS/blob/master/RenovaLivrosUFRGS/Images.xcassets/login_scren.imageset/login_scren.png) ![alt tag](https://github.com/MatheusCavalca/RenovaLivrosUFRGS/blob/master/RenovaLivrosUFRGS/Images.xcassets/book_list_screen.imageset/book_list_screen.png)
