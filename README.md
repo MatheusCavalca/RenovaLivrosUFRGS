@@ -27,4 +27,4 @@ Feel free to submit a pull request if you have any improvement to sugest. If you
 Screenshots
 -----------
 
-![alt tag](http://imageshack.com/a/img673/6028/HRaydf.png) ![alt tag](http://imageshack.com/a/img537/7295/raoDSP.png)
+![alt tag](https://github.com/MatheusCavalca/RenovaLivrosUFRGS/blob/master/RenovaLivrosUFRGS/Images.xcassets/Screen_1.imageset/Screen%201%40iPhone6.png) ![alt tag](https://github.com/MatheusCavalca/RenovaLivrosUFRGS/blob/master/RenovaLivrosUFRGS/Images.xcassets/Screen_2.imageset/Screen%202%40iPhone6.png)
