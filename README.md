@@ -3,7 +3,7 @@ iOS Open Source Application written in Swift. App to manage borrowed books at UF
 
 App in portuguese, code and comments in english. Available for iOS 8.0.
 
-**IMPORTANT**: This project uses Cocoapods as the dependency manager, make sure you have it installed. After download or clone it, apply the following command in the directory of the project:
+**IMPORTANT**: This project uses CocoaPods as the dependency manager, make sure you have it installed. After download or clone it, apply the following command in the directory of the project:
 
 ```
 pod install 
